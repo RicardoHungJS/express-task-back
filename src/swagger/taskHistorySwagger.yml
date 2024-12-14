@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Task history API
+  version: '1.0.0'
+paths:
+  /taskHistory:
+    get:
+      tags:
+        - TaskHistory
+      summary: Retrieve the task history
+      description: Retrieve the task history from the database.
+      responses:
+        '200':
+          description: A list of task history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskHistory'
+components:
+  schemas:
+    TaskHistory:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: Task history ID
+        modificationDate:
+          type: string
+          format: date-time
+          description: Task history modification date
+        taskId:
+          type: string
+          description: Associated task ID
+        title:
+          type: string
+          description: Task title in the history
+        description:
+          type: string
+          description: Description of the change made to the task
+      required:
+        - modificationDate
+        - taskId
+        - title
+        - description

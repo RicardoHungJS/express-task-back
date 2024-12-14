@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  title: Task API
+  version: '1.0.0'
+paths:
+  /task/{id}:
+    get:
+      tags:
+        - Task
+      summary: Retrieve a single task by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The task ID
+      responses:
+        '200':
+          description: A single task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: Task not found
+    put:
+      tags:
+        - Task
+      summary: Update an existing task by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The task ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Task updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: Task not found
+    delete:
+      tags:
+        - Task
+      summary: Delete a task by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The task ID
+      responses:
+        "200":
+          description: Task deleted successfully
+        "404":
+          description: Task not found
+  /task:
+    get:
+      tags:
+        - Task
+      summary: Retrieve a list of tasks
+      responses:
+        '200':
+          description: A list of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+    post:
+      tags:
+        - Task
+      summary: Create a new task
+      requestBody:
+        description: Task creation data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Task created successfully
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'Document ID'
+        title:
+          type: string
+          description: 'Task title'
+        description:
+          type: string
+          description: 'Task description'
+        status:
+          type: string
+          description: 'Task status'
+          enum: ['Pending', 'In Progress', 'Completed']
+        priority:
+          type: string
+          description: 'Task priority'
+          enum: ['Low', 'Medium', 'High']
+        dueDate:
+          type: string
+          format: 'date-time'
+          description: 'Task due date'
+        tags:
+          type: array
+          items:
+            type: string
+          description: 'Task tags'
+      required:
+        - title
+        - status
+        - dueDate

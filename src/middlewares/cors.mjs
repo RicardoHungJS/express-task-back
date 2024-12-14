@@ -12,6 +12,8 @@ const corsOptions = {
       callback(new Error(CORS_ERROR_MESSAGE));
     }
   },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 const corsMiddleware = cors(corsOptions);
