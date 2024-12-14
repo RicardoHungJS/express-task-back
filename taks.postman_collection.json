@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "835bc1dc-f183-4665-a2a3-381365da2c39",
+		"name": "taks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31207967"
+	},
+	"item": [
+		{
+			"name": "get all tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev}}api/v1/task",
+					"host": [
+						"{{dev}}api"
+					],
+					"path": [
+						"v1",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get task by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev}}api/v1/task/675c98d4dd8e87e2408709d4",
+					"host": [
+						"{{dev}}api"
+					],
+					"path": [
+						"v1",
+						"task",
+						"675c98d4dd8e87e2408709d4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"test\",\r\n  \"description\": \"test description.\",\r\n  \"status\": \"Pending\",\r\n  \"priority\": \"Medium\",\r\n  \"dueDate\": \"2024-12-30T17:00:00.000Z\",\r\n  \"tags\": [\"test\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dev}}api/v1/task",
+					"host": [
+						"{{dev}}api"
+					],
+					"path": [
+						"v1",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test 3\",\r\n    \"priority\": \"High\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dev}}api/v1/task/675dabf8b4b6d3d6cc201eab",
+					"host": [
+						"{{dev}}api"
+					],
+					"path": [
+						"v1",
+						"task",
+						"675dabf8b4b6d3d6cc201eab"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{dev}}api/v1/task/675da82dc60add8a1626b004",
+					"host": [
+						"{{dev}}api"
+					],
+					"path": [
+						"v1",
+						"task",
+						"675da82dc60add8a1626b004"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

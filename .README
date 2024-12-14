@@ -9,7 +9,7 @@ This project is a Task Management API built with Express.js. It allows you to ma
 - [API Endpoints](#api-endpoints)
 - [Swagger Documentation](#swagger-documentation)
 - [Environment Variables](#environment-variables)
-- [License](#license)
+- [Postman Collections](#postman-collections)
 
 ## Installation
 
@@ -58,11 +58,25 @@ The API is documented using Swagger. Once the server is running, you can access 
 
 The following environment variables are required:
 
-- `PORT`: The port on which the server will run (default: 3000).
-- `MONGO_URI`: The URI of your MongoDB database.
+- [PORT](http://_vscodecontentref_/1): The port on which the server will run (default: 3000).
+- [MONGO_URI](http://_vscodecontentref_/2): The URI of your MongoDB database.
 
 Example [.env](http://_vscodecontentref_/2) file:
 
 ```env
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/taskdb
+```
+## Postman Collections
+
+Two Postman collections are included in the root directory of the project to help you test the API endpoints in production:
+
+- `tasks.postman_collection.json`: This collection contains requests for managing tasks, including creating, updating, deleting, and retrieving tasks.
+- `task_history.postman_collection.json`: This collection contains requests for retrieving the task history.
+
+### To use these collections:
+
+1. Open Postman.
+2. Click on the "Import" button.
+3. Select the `tasks.postman_collection.json` or `task_history.postman_collection.json` file from the root directory of the project.
+4. Once imported, you can use the requests in the collection to test the API endpoints in production.
