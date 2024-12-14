@@ -1,0 +1,68 @@
+# Task Management API
+
+This project is a Task Management API built with Express.js. It allows you to manage tasks and their history, including creating, updating, deleting, and retrieving tasks.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Swagger Documentation](#swagger-documentation)
+- [Environment Variables](#environment-variables)
+- [License](#license)
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/task-management-api.git
+    cd task-management-api
+    ```
+
+2. Install dependencies:
+    ```sh
+    npm install
+    yarn (if you are using yarn)
+    ```
+
+3. Create a [.env](http://_vscodecontentref_/0) file in the root directory and add your environment variables (see Environment Variables).
+
+4. Start the server:
+    ```sh
+    npm start
+    ```
+
+## Usage
+
+Once the server is running, you can access the API at `http://localhost:3000` (or the port specified in your [.env](http://_vscodecontentref_/1) file).
+
+## API Endpoints
+
+### Task Routes
+
+- `GET /api/v1/task`: Retrieve a list of tasks.
+- `GET /api/v1/task/:id`: Retrieve a single task by ID.
+- `POST /api/v1/task`: Create a new task.
+- `PUT /api/v1/task/:id`: Update an existing task by ID.
+- `DELETE /api/v1/task/:id`: Delete a task by ID.
+
+### Task History Routes
+
+- `GET /api/v1/taskHistory`: Retrieve the task history.
+
+## Swagger Documentation
+
+The API is documented using Swagger. Once the server is running, you can access the Swagger UI at `http://localhost:3000/api-docs`.
+
+## Environment Variables
+
+The following environment variables are required:
+
+- `PORT`: The port on which the server will run (default: 3000).
+- `MONGO_URI`: The URI of your MongoDB database.
+
+Example [.env](http://_vscodecontentref_/2) file:
+
+```env
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/taskdb
