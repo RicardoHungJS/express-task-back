@@ -1,17 +1,15 @@
 import { config } from 'dotenv';
+config({ path: '.env' });
 import express from 'express';
 import connectDB from './src/config/db.js';
-import corsMiddleware from './src/middlewares/cors.mjs';
 import { errorHandler } from './src/middlewares/errorsHandler.mjs';
 import { requestLogger } from './src/middlewares/logger.mjs';
 import router from './src/routes/routes.js';
 import setupSwagger from './swagger.js';
+import corsMiddleware from './src/middlewares/cors.mjs';
 
 const app = express();
 
-app.options('*', corsMiddleware);
-
-config({ path: '.env' });
 connectDB();
 console.log('Starting server...');
 
@@ -21,6 +19,7 @@ setupSwagger(app);
 // request login middleware
 app.use(requestLogger);
 
+app.options('*', corsMiddleware);
 // Validating api functionality
 app.get('/', (req, res) => {
   res.send('API is working...');
