@@ -9,6 +9,7 @@ import setupSwagger from './swagger.js';
 import corsMiddleware from './src/middlewares/cors.mjs';
 
 const app = express();
+app.use(corsMiddleware);
 
 connectDB();
 console.log('Starting server...');
@@ -19,7 +20,6 @@ setupSwagger(app);
 // request login middleware
 app.use(requestLogger);
 
-app.options('*', corsMiddleware);
 // Validating api functionality
 app.get('/', (req, res) => {
   res.send('API is working...');
